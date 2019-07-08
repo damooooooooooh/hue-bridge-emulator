@@ -37,7 +37,7 @@ function getIpAddress() {
 }
 
 class HueBridgeEmulator {
-    start() {
+    start(port = 80) {
         this.lights = {};
         this.callbacks = {};
 
@@ -48,7 +48,7 @@ class HueBridgeEmulator {
         const bridgeId = `${prefix}FFFE${postfix}`;
         const uuid = `2f402f80-da50-11e1-9b23-${serialNumber}`;
         const ipAddress = getIpAddress();
-        const port = 80;
+        const port = port;
 
         const app = express();
         app.use(bodyParser.json());
